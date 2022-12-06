@@ -151,6 +151,10 @@ struct ContentView: View {
                     }
                     .padding(.horizontal, 25)
                 }
+                .scrollDismissesKeyboard(.interactively)
+            }
+            .onTapGesture {
+                hideKeyboard()
             }
             .fullScreenCover(isPresented: $showCameraPicker, content: {
                 CameraPicker(image: $image, showCameraPicker: $showCameraPicker)

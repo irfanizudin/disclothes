@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E4056D2293F34C3003CCA14 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D1293F34C3003CCA14 /* CameraPicker.swift */; };
+		2E4056D4293F3FA0003CCA14 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */; };
 		2EE9C4C3293CC13C00675D07 /* disclothesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C2293CC13C00675D07 /* disclothesApp.swift */; };
 		2EE9C4C5293CC13C00675D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C4293CC13C00675D07 /* ContentView.swift */; };
 		2EE9C4C7293CC13C00675D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C6293CC13C00675D07 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		2E4056D1293F34C3003CCA14 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		2EE9C4BF293CC13C00675D07 /* disclothes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disclothes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE9C4C2293CC13C00675D07 /* disclothesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disclothesApp.swift; sourceTree = "<group>"; };
 		2EE9C4C4293CC13C00675D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				2EE9C4D1293CE9A000675D07 /* Color.swift */,
+				2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4056D4293F3FA0003CCA14 /* HideKeyboard.swift in Sources */,
 				2E4056D2293F34C3003CCA14 /* CameraPicker.swift in Sources */,
 				2EE9C4C5293CC13C00675D07 /* ContentView.swift in Sources */,
 				2EE9C4C3293CC13C00675D07 /* disclothesApp.swift in Sources */,
