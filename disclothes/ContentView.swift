@@ -13,6 +13,8 @@ struct ContentView: View {
     let finalPrice: Int = 31_000
     @State private var discount1 = ""
     @State private var discount2 = ""
+    @State private var image: UIImage?
+    @State private var showCameraPicker: Bool = false
     
     var body: some View {
         NavigationView {
@@ -33,11 +35,19 @@ struct ContentView: View {
                         .padding(.top, 15)
                         
                         VStack {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 200)
-                                .foregroundColor(Color(Palette.TextSecondary.rawValue))
+                            if image == nil {
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200)
+                                    .foregroundColor(Color(Palette.TextSecondary.rawValue))
+                            } else {
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 200)
+                                    .foregroundColor(Color(Palette.TextSecondary.rawValue))
+                            }
                             
                             Text("Rp \(normalPrice)")
                                 .font(.title3)
@@ -115,6 +125,7 @@ struct ContentView: View {
                             
                             Button {
                                 print("scan price")
+                                showCameraPicker.toggle()
                             } label: {
                                 Text("Scan Price")
                                     .font(.headline)
@@ -141,6 +152,10 @@ struct ContentView: View {
                     .padding(.horizontal, 25)
                 }
             }
+            .fullScreenCover(isPresented: $showCameraPicker, content: {
+                CameraPicker(image: $image, showCameraPicker: $showCameraPicker)
+                    .ignoresSafeArea()
+            })
             .navigationTitle("Disclothes")
             .navigationBarTitleDisplayMode(.inline)
             
