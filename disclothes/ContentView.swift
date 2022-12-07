@@ -10,8 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var vm = ContentViewModel()
-    @State private var discount1 = ""
-    @State private var discount2 = ""
     @State private var image: UIImage?
     @State private var showCameraPicker: Bool = false
     @State private var showAlert: Bool = false
@@ -115,8 +113,8 @@ struct ContentView: View {
                                     Text("Discount 1 (%)")
                                         .font(.body)
                                         .foregroundColor(Color(Palette.TextSecondary.rawValue))
-                                    TextField("Enter discount 1...", text: $discount1)
-                                        .keyboardType(.decimalPad)
+                                    TextField("Enter discount 1...", text: $vm.discount1)
+                                        .keyboardType(.numberPad)
                                         .padding()
                                         .background(Color(Palette.TextField.rawValue))
                                         .cornerRadius(20)
@@ -127,25 +125,25 @@ struct ContentView: View {
                                     Text("Discount 2 (%)")
                                         .font(.body)
                                         .foregroundColor(Color(Palette.TextSecondary.rawValue))
-                                        .opacity(discount1.isEmpty || Int(discount1) == 0 ? 0.3 : 1)
+                                        .opacity(vm.discount1.isEmpty || Int(vm.discount1) == 0 ? 0.3 : 1)
 
-                                    TextField("Enter discount 2...", text: $discount2)
-                                        .keyboardType(.decimalPad)
+                                    TextField("Enter discount 2...", text: $vm.discount2)
+                                        .keyboardType(.numberPad)
                                         .padding()
                                         .background(Color(Palette.TextField.rawValue))
                                         .cornerRadius(20)
-                                        .disabled(discount1.isEmpty || Int(discount1) == 0 ? true : false)
-                                        .opacity(discount1.isEmpty || Int(discount1) == 0 ? 0.3 : 1)
+                                        .disabled(vm.discount1.isEmpty || Int(vm.discount1) == 0 ? true : false)
+                                        .opacity(vm.discount1.isEmpty || Int(vm.discount1) == 0 ? 0.3 : 1)
                                 }
                             }
                             
                             Button {
                                 print("scan price")
                                 showCameraPicker.toggle()
-                                Variable.discount1 = Double(discount1) ?? 0
-                                Variable.discount2 = Double(discount2) ?? 0
+                                Variable.discount1 = Double(vm.discount1) ?? 0
+                                Variable.discount2 = Double(vm.discount2) ?? 0
                                 
-                                if discount1.isEmpty || Int(discount1) == 0 {
+                                if vm.discount1.isEmpty || Int(vm.discount1) == 0 {
                                     showAlert.toggle()
                                 }
                             } label: {
