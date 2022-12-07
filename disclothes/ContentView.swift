@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var vm = ContentViewModel()
-    let finalPrice: Int = 31_000
     @State private var discount1 = ""
     @State private var discount2 = ""
     @State private var image: UIImage?
@@ -49,7 +48,7 @@ struct ContentView: View {
                                     .foregroundColor(Color(Palette.TextSecondary.rawValue))
                             }
                             
-                            Text("Rp \(Int(Variable.normalPrice))")
+                            Text(Variable.normalPrice == 0 ? "Price not detected" : "Rp \(Int(Variable.normalPrice))")
                                 .font(.title3)
                                 .bold()
                                 .foregroundColor(Color(Palette.TextPrimary.rawValue))
@@ -72,14 +71,18 @@ struct ContentView: View {
                         .padding(.top, 15)
 
                         VStack {
-                            Text("Rp \(finalPrice)")
+                            Text("Rp \(Int(Variable.finalPrice))")
                                 .font(.title3)
                                 .bold()
                                 .foregroundColor(Color(Palette.TextPrimary.rawValue))
-                            Text("\(discount1)% + \(discount2)% off from normal price")
-                                .font(.callout)
-                                .foregroundColor(Color(Palette.TextSecondary.rawValue))
-                                .padding(.top, -8)
+                            
+                            if Variable.finalPrice != 0 {
+                                Text("\(Int(Variable.discount1))% + \(Int(Variable.discount2))% off from normal price")
+                                    .font(.callout)
+                                    .foregroundColor(Color(Palette.TextSecondary.rawValue))
+                                    .padding(.top, -8)
+                            }
+
                         }
                         .foregroundColor(Color(Palette.TextPrimary.rawValue))
                         .padding(30)
@@ -126,6 +129,10 @@ struct ContentView: View {
                             Button {
                                 print("scan price")
                                 showCameraPicker.toggle()
+                                
+                                Variable.discount1 = Double(discount1) ?? 0
+                                Variable.discount2 = Double(discount2) ?? 0
+                                
                             } label: {
                                 Text("Scan Price")
                                     .font(.headline)
