@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var discount2 = ""
     @State private var image: UIImage?
     @State private var showCameraPicker: Bool = false
+    @State private var showAlert: Bool = false
+    @FocusState private var fieldFocus: Bool
     
     var body: some View {
         NavigationView {
@@ -112,27 +114,34 @@ struct ContentView: View {
                                         .padding()
                                         .background(Color(Palette.TextField.rawValue))
                                         .cornerRadius(20)
+                                        .focused($fieldFocus)
                                 }
                                 
                                 VStack {
                                     Text("Discount 2 (%)")
                                         .font(.body)
                                         .foregroundColor(Color(Palette.TextSecondary.rawValue))
+                                        .opacity(discount1.isEmpty ? 0.3 : 1)
+
                                     TextField("Enter discount 2...", text: $discount2)
                                         .keyboardType(.decimalPad)
                                         .padding()
                                         .background(Color(Palette.TextField.rawValue))
                                         .cornerRadius(20)
+                                        .disabled(discount1.isEmpty ? true : false)
+                                        .opacity(discount1.isEmpty ? 0.3 : 1)
                                 }
                             }
                             
                             Button {
                                 print("scan price")
                                 showCameraPicker.toggle()
-                                
                                 Variable.discount1 = Double(discount1) ?? 0
                                 Variable.discount2 = Double(discount2) ?? 0
                                 
+                                if discount1.isEmpty {
+                                    showAlert.toggle()
+                                }
                             } label: {
                                 Text("Scan Price")
                                     .font(.headline)
@@ -163,6 +172,11 @@ struct ContentView: View {
             .onTapGesture {
                 hideKeyboard()
             }
+            .alert("Please enter the discount first!", isPresented: $showAlert, actions: {
+                Button("Ok", role: .cancel) {
+                    fieldFocus = true
+                }
+            })
             .fullScreenCover(isPresented: $showCameraPicker, content: {
                 CameraPicker(image: $image, showCameraPicker: $showCameraPicker)
                     .ignoresSafeArea()
