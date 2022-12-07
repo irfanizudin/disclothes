@@ -73,10 +73,16 @@ struct ContentView: View {
                         .padding(.top, 15)
 
                         VStack {
-                            Text("Rp \(Int(Variable.finalPrice))")
-                                .font(.title3)
-                                .bold()
-                                .foregroundColor(Color(Palette.TextPrimary.rawValue))
+                            VStack {
+                                if Variable.finalPrice < 0 {
+                                    Text("Your Item is Free")
+                                } else {
+                                    Text("Rp \(Int(Variable.finalPrice))")
+                                }
+                            }
+                            .font(.title3)
+                            .bold()
+                            .foregroundColor(Color(Palette.TextPrimary.rawValue))
                             
                             if Variable.finalPrice != 0 {
                                 Text("\(Int(Variable.discount1))% + \(Int(Variable.discount2))% off from normal price")
@@ -121,15 +127,15 @@ struct ContentView: View {
                                     Text("Discount 2 (%)")
                                         .font(.body)
                                         .foregroundColor(Color(Palette.TextSecondary.rawValue))
-                                        .opacity(discount1.isEmpty ? 0.3 : 1)
+                                        .opacity(discount1.isEmpty || Int(discount1) == 0 ? 0.3 : 1)
 
                                     TextField("Enter discount 2...", text: $discount2)
                                         .keyboardType(.decimalPad)
                                         .padding()
                                         .background(Color(Palette.TextField.rawValue))
                                         .cornerRadius(20)
-                                        .disabled(discount1.isEmpty ? true : false)
-                                        .opacity(discount1.isEmpty ? 0.3 : 1)
+                                        .disabled(discount1.isEmpty || Int(discount1) == 0 ? true : false)
+                                        .opacity(discount1.isEmpty || Int(discount1) == 0 ? 0.3 : 1)
                                 }
                             }
                             
@@ -139,7 +145,7 @@ struct ContentView: View {
                                 Variable.discount1 = Double(discount1) ?? 0
                                 Variable.discount2 = Double(discount2) ?? 0
                                 
-                                if discount1.isEmpty {
+                                if discount1.isEmpty || Int(discount1) == 0 {
                                     showAlert.toggle()
                                 }
                             } label: {
@@ -172,7 +178,7 @@ struct ContentView: View {
             .onTapGesture {
                 hideKeyboard()
             }
-            .alert("Please enter the discount first!", isPresented: $showAlert, actions: {
+            .alert("Please enter the first discount!", isPresented: $showAlert, actions: {
                 Button("Ok", role: .cancel) {
                     fieldFocus = true
                 }
