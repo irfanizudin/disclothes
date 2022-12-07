@@ -51,6 +51,7 @@ class CameraPickerCoordinator: NSObject, UINavigationControllerDelegate, UIImage
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = uiImage
             showCameraPicker = false
+            recognizeText(image: (image?.cgImage)!)
         }
     }
     

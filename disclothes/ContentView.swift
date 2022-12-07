@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let normalPrice: Int = 320_000_000
+    @StateObject var vm = ContentViewModel()
     let finalPrice: Int = 31_000
     @State private var discount1 = ""
     @State private var discount2 = ""
@@ -49,7 +49,7 @@ struct ContentView: View {
                                     .foregroundColor(Color(Palette.TextSecondary.rawValue))
                             }
                             
-                            Text("Rp \(normalPrice)")
+                            Text("Rp \(Int(Variable.normalPrice))")
                                 .font(.title3)
                                 .bold()
                                 .foregroundColor(Color(Palette.TextPrimary.rawValue))

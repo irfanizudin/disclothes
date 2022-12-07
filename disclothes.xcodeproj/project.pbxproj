@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E4056D2293F34C3003CCA14 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D1293F34C3003CCA14 /* CameraPicker.swift */; };
 		2E4056D4293F3FA0003CCA14 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */; };
+		2E4056D6293F4C3E003CCA14 /* TextRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D5293F4C3E003CCA14 /* TextRecognition.swift */; };
+		2E4056D829404260003CCA14 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4056D729404260003CCA14 /* ContentViewModel.swift */; };
 		2EE9C4C3293CC13C00675D07 /* disclothesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C2293CC13C00675D07 /* disclothesApp.swift */; };
 		2EE9C4C5293CC13C00675D07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C4293CC13C00675D07 /* ContentView.swift */; };
 		2EE9C4C7293CC13C00675D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE9C4C6293CC13C00675D07 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		2E4056D1293F34C3003CCA14 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		2E4056D5293F4C3E003CCA14 /* TextRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognition.swift; sourceTree = "<group>"; };
+		2E4056D729404260003CCA14 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		2EE9C4BF293CC13C00675D07 /* disclothes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disclothes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE9C4C2293CC13C00675D07 /* disclothesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disclothesApp.swift; sourceTree = "<group>"; };
 		2EE9C4C4293CC13C00675D07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 				2EE9C4D0293CE98700675D07 /* utils */,
 				2EE9C4C2293CC13C00675D07 /* disclothesApp.swift */,
 				2EE9C4C4293CC13C00675D07 /* ContentView.swift */,
+				2E4056D729404260003CCA14 /* ContentViewModel.swift */,
 				2E4056D1293F34C3003CCA14 /* CameraPicker.swift */,
 				2EE9C4C6293CC13C00675D07 /* Assets.xcassets */,
 				2EE9C4C8293CC13C00675D07 /* Preview Content */,
@@ -80,6 +85,7 @@
 			children = (
 				2EE9C4D1293CE9A000675D07 /* Color.swift */,
 				2E4056D3293F3FA0003CCA14 /* HideKeyboard.swift */,
+				2E4056D5293F4C3E003CCA14 /* TextRecognition.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -157,7 +163,9 @@
 				2E4056D4293F3FA0003CCA14 /* HideKeyboard.swift in Sources */,
 				2E4056D2293F34C3003CCA14 /* CameraPicker.swift in Sources */,
 				2EE9C4C5293CC13C00675D07 /* ContentView.swift in Sources */,
+				2E4056D829404260003CCA14 /* ContentViewModel.swift in Sources */,
 				2EE9C4C3293CC13C00675D07 /* disclothesApp.swift in Sources */,
+				2E4056D6293F4C3E003CCA14 /* TextRecognition.swift in Sources */,
 				2EE9C4D2293CE9A000675D07 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
