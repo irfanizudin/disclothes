@@ -177,7 +177,7 @@ struct ContentView: View {
                 hideKeyboard()
             }
             .alert("Please enter the first discount!", isPresented: $showAlert, actions: {
-                Button("Ok", role: .cancel) {
+                Button("OK", role: .cancel) {
                     fieldFocus = true
                 }
             })
