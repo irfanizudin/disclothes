@@ -134,13 +134,13 @@ struct ContentView: View {
                             }
                             
                             Button {
-                                print("scan price")
-                                vm.showCameraPicker.toggle()
-                                Variable.discount1 = Double(vm.discount1) ?? 0
-                                Variable.discount2 = Double(vm.discount2) ?? 0
-                                
                                 if vm.discount1.isEmpty || Int(vm.discount1) == 0 {
                                     vm.showAlert.toggle()
+                                } else {
+                                    print("scan price")
+                                    vm.showCameraPicker = true
+                                    Variable.discount1 = Double(vm.discount1) ?? 0
+                                    Variable.discount2 = Double(vm.discount2) ?? 0
                                 }
                             } label: {
                                 Text("Scan Price")
