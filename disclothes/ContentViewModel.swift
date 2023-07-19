@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 class ContentViewModel: ObservableObject {
     
+    @Published var image: UIImage?
+    @Published var showCameraPicker: Bool = false
+    @Published var showAlert: Bool = false
+
     var limit: Int = 2
     @Published var discount1: String = "" {
         didSet {

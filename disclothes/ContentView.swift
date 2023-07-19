@@ -10,9 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var vm = ContentViewModel()
-    @State private var image: UIImage?
-    @State private var showCameraPicker: Bool = false
-    @State private var showAlert: Bool = false
     @FocusState private var fieldFocus: Bool
     
     var body: some View {
@@ -34,14 +31,14 @@ struct ContentView: View {
                         .padding(.top, 15)
                         
                         VStack {
-                            if image == nil {
+                            if vm.image == nil {
                                 Image(systemName: "photo")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 200)
                                     .foregroundColor(Color(Palette.TextSecondary.rawValue))
                             } else {
-                                Image(uiImage: image!)
+                                Image(uiImage: vm.image!)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 200)
@@ -138,12 +135,12 @@ struct ContentView: View {
                             
                             Button {
                                 print("scan price")
-                                showCameraPicker.toggle()
+                                vm.showCameraPicker.toggle()
                                 Variable.discount1 = Double(vm.discount1) ?? 0
                                 Variable.discount2 = Double(vm.discount2) ?? 0
                                 
                                 if vm.discount1.isEmpty || Int(vm.discount1) == 0 {
-                                    showAlert.toggle()
+                                    vm.showAlert.toggle()
                                 }
                             } label: {
                                 Text("Scan Price")
@@ -174,13 +171,13 @@ struct ContentView: View {
             .onTapGesture {
                 hideKeyboard()
             }
-            .alert("Please enter the first discount!", isPresented: $showAlert, actions: {
+            .alert("Please enter the first discount!", isPresented: $vm.showAlert, actions: {
                 Button("OK", role: .cancel) {
                     fieldFocus = true
                 }
             })
-            .fullScreenCover(isPresented: $showCameraPicker, content: {
-                CameraPicker(image: $image, showCameraPicker: $showCameraPicker)
+            .fullScreenCover(isPresented: $vm.showCameraPicker, content: {
+                CameraPicker(image: $vm.image, showCameraPicker: $vm.showCameraPicker)
                     .ignoresSafeArea()
             })
             .navigationTitle("Disclothes")
