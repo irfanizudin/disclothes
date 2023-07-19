@@ -78,8 +78,7 @@ struct ContentView: View {
                                     Text("Rp \(Int(Variable.finalPrice))")
                                 }
                             }
-                            .font(.title3)
-                            .bold()
+                            .font(.title3.bold())
                             .foregroundColor(Color(Palette.TextPrimary.rawValue))
                             
                             if Variable.finalPrice != 0 {
@@ -171,7 +170,6 @@ struct ContentView: View {
                     }
                     .padding(.horizontal, 25)
                 }
-                .scrollDismissesKeyboard(.interactively)
             }
             .onTapGesture {
                 hideKeyboard()
